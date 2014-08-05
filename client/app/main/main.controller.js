@@ -5,7 +5,9 @@ angular.module('tldrmeApp')
     $scope.article = {};
 
     $scope.summarize = function() {
-      $http.post('/tease', $scope.article).success(function(summary) {
+      $http.post('/tease', {
+        url: $scope.url
+      }).success(function(summary) {
         $scope.summary = summary;
       });
     };
