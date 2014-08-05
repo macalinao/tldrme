@@ -5,7 +5,7 @@
 'use strict';
 
 var errors = require('./components/errors');
-var JsTeaser = require('jsteaser');
+var JsTeaser = require('teaser');
 var tease = function(title, text) {
   return (new JsTeaser({
     title: title,
