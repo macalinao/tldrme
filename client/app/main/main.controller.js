@@ -1,11 +1,14 @@
 'use strict';
 
 angular.module('tldrmeApp')
-  .controller('MainCtrl', function ($scope, $http) {
-    $scope.awesomeThings = [];
+  .controller('MainCtrl', function($scope, $http) {
+    $scope.article = {};
 
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-    });
+    $scope.summarize = function() {
+      $http.post('/tease', $scope.article).success(function(summary) {
+        $scope.summary = summary;
+      });
+    };
 
+    $scope.summary = '';
   });

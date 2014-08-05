@@ -6,16 +6,13 @@
 
 var errors = require('./components/errors');
 var JsTeaser = require('teaser');
-var tease = function(title, text) {
-  return (new JsTeaser({
-    title: title,
-    text: text
-  }));
-};
 
 module.exports = function(app) {
   app.post('/tease', function(req, res) {
-    res.send(tease(req.body.title, req.body.text));
+    res.send((new JsTeaser({
+      title: req.body.title,
+      text: req.body.text
+    })).summarize().join(' '));
   });
 
   // All undefined asset or api routes should return a 404

@@ -1,27 +1,41 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<header class="hero-unit" id="banner">
-  <div class="container">
-    <h1>'Allo, 'Allo!</h1>
-    <p class="lead">Kick-start your next web app with Angular Fullstack</p>
-    <img src="assets/images/yeoman.png" alt="I'm Yeoman">
-  </div>
-</header>
-
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header">Features:</h1>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in awesomeThings">
-        <li><a href="#" tooltip="{{thing.info}}">{{thing.name}}</a></li>
-      </ul>
+      <h1 class="page-header">Give me an article below and I'll summarize it!</h1>
+
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <label for="title" class="col-sm-2 control-label">Title</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="title" ng-model="article.title" placeholder="Article title">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="content" class="col-sm-2 control-label">Content</label>
+          <div class="col-sm-10">
+            <textarea id="content" class="form-control" rows="3" ng-model="article.text"></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" ng-click="summarize()" class="btn btn-primary">Summarize!</button>
+          </div>
+        </div>
+      </form>
     </div>
+  </div>
+
+  <div class="row">
+    {{summary}}
   </div>
 </div>
 
 <footer class="footer">
   <div class="container">
-      <p><a href="https://twitter.com/tyhenkel">@tyhenkel</a> |
-         <a href="https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open">Issues</a></p>
+    <p><a href="https://twitter.com/tyhenkel">@tyhenkel</a> |
+      <a href="https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open">Issues</a>
+    </p>
   </div>
 </footer>
